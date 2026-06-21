@@ -1,0 +1,7 @@
+{
+  "name": "meus-contatos",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular"
+}

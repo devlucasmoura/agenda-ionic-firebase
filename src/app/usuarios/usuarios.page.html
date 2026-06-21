@@ -1,0 +1,37 @@
+<ion-header [translucent]="true">
+  <ion-toolbar color="primary">
+    <ion-title>Usuários da API</ion-title>
+    <ion-buttons slot="end">
+      <ion-button (click)="buscarUsuarios()">
+        <ion-icon slot="icon-only" name="refresh"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <ion-refresher slot="fixed" (ionRefresh)="buscarUsuarios($event)">
+    <ion-refresher-content></ion-refresher-content>
+  </ion-refresher>
+
+  <div *ngIf="carregando" class="ion-text-center ion-padding">
+    <ion-spinner name="crescent"></ion-spinner>
+    <p>Buscando usuários...</p>
+  </div>
+
+  <ion-list *ngIf="!carregando">
+    <ion-item *ngFor="let u of usuarios">
+      <ion-avatar slot="start">
+        <img [src]="u.picture.thumbnail" alt="foto" />
+      </ion-avatar>
+      <ion-label>
+        <h2>{{ u.name.first }} {{ u.name.last }}</h2>
+        <p>{{ u.email }}</p>
+        <p>{{ u.phone }}</p>
+      </ion-label>
+      <ion-button slot="end" fill="clear" (click)="adicionarAosContatos(u)">
+        <ion-icon slot="icon-only" name="person-add"></ion-icon>
+      </ion-button>
+    </ion-item>
+  </ion-list>
+</ion-content>
