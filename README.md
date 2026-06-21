@@ -37,3 +37,7 @@ src/app/
 ├── services/    # Service de comunicacao com Firestore
 └── tabs/        # Navegacao por abas
 ```
+## Autor
+
+**Lucas da Silva de Moura**  
+Estudante de Análise e Desenvolvimento de Sistemas
